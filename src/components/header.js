@@ -1,30 +1,27 @@
-import React from 'react'
-import AboutPage from '../pages/about'
-import BlogPage from '../pages/blog'
-import ContactPage from '../pages/contact'
-import IndexPage from '../pages/index'
+import React from "react"
+import { Link } from "gatsby"
 
 const Header = () => {
   return (
-    <div>
+    <header>
       <h1>Evan Sparkman - Blog of Mystery</h1>
       <nav>
         <ul>
           <li>
-            <IndexPage />
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <AboutPage />
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <BlogPage />
+            <Link to="/blog">Articles</Link>
           </li>
           <li>
-            <ContactPage />
+            <Link to="/contact">Contact Me</Link>
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   )
 }
 
