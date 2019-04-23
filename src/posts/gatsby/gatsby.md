@@ -6,6 +6,8 @@ author: "Evan Sparkman"
 
 I just launched a new Bootcamp!
 
+![Grass](./grass.png)
+
 ## Topics Covered
 
 1. Gatsby
