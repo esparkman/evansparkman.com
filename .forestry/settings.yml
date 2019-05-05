@@ -5,6 +5,12 @@ admin_path: "/admin"
 webhook_url: 
 sections:
 - type: directory
+  path: galleries
+  label: Galleries
+  create: all
+  match: "**/*"
+  new_doc_ext: ".md"
+- type: directory
   path: pages
   label: Pages
   create: all
