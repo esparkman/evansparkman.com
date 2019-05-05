@@ -1,0 +1,15 @@
+---
+label: gallery
+hide_body: false
+display_field: title
+fields:
+- type: text
+  name: title
+  label: Title
+  description: Name of Gallery
+  config:
+    required: true
+- type: image_gallery
+  name: gallery_images
+  label: Gallery Images
+  description: Images to populate Gallery
