@@ -4,8 +4,6 @@ auto_deploy: false
 admin_path: "/admin"
 webhook_url: 
 sections:
-- type: heading
-  label: Galleries
 - type: directory
   path: pages
   label: Pages
