@@ -2,29 +2,29 @@
 new_page_extension: md
 auto_deploy: false
 admin_path: "/admin"
-webhook_url:
+webhook_url: 
 sections:
-  - type: directory
-    path: src/galleries
-    label: Galleries
-    create: all
-    match: "**/*"
-    new_doc_ext: md
-  - type: directory
-    path: src/pages
-    label: Pages
-    create: all
-    match: "**/*"
-    new_doc_ext: md
-  - type: directory
-    path: src/posts
-    label: Posts
-    create: all
-    match: "**/*"
-    new_doc_ext: md
+- type: directory
+  path: src/galleries
+  label: Galleries
+  create: all
+  match: "**/*"
+  new_doc_ext: md
+- type: directory
+  path: src/pages
+  label: Pages
+  create: all
+  match: "**/*"
+  new_doc_ext: md
+- type: directory
+  path: src/posts
+  label: Posts
+  create: all
+  match: "**/*"
+  new_doc_ext: md
 upload_dir: uploads
-public_path: "/uploads"
-front_matter_path: ""
+public_path: "/static/uploads"
+front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
 build:

@@ -13,5 +13,3 @@ fields:
   name: gallery_images
   label: Gallery Images
   description: Images to populate Gallery
-pages:
-- galleries/2018-2019.md
