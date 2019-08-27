@@ -17,7 +17,7 @@ const BlogPage = ({ data }) => {
             <li className={blogStyles.post} key={edge.node.id}>
               <Link to={`/blog/${edge.node.slug}`}>
                 <h2>{edge.node.title}</h2>
-                <p>{edge.node.publishedDate}</p>
+                <p>Written by {edge.node.author.fullName} on {edge.node.publishedDate}</p>
               </Link>
             </li>
           )
@@ -41,6 +41,9 @@ export const query = graphql`
         node {
           id
           slug
+          author {
+            fullName
+          }
           title
           tags
           publishedDate(formatString:"MMMM Do, YYYY")
