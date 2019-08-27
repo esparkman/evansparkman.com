@@ -7,6 +7,14 @@ import Layout from "../components/Layout"
 export const query = graphql`
   query($slug: String!) {
     contentfulPost(slug: { eq: $slug}) {
+      author {
+        fullName
+        profileImage {
+          file {
+            url
+          }
+        }
+      }
       title
       content {
         json
@@ -23,12 +31,12 @@ export const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const { title, publishedDate, content, image, tags } = data.contentfulPost
+  const { author, title, publishedDate, content, image, tags } = data.contentfulPost
   return (
     <Layout>
       <img src={image.file.url} alt="" />
       <h1>{title}</h1>
-      <p>{publishedDate}</p>
+      <p>Written by {author.fullName} on {publishedDate}</p>
       { documentToReactComponents(content.json) }
       <ul>
         { tags.map((tag, index) => (<li key={index}>{tag}</li>)) }
