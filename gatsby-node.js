@@ -17,22 +17,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-    .then(result => {
-      if (result.errors) {
-        console.log("Error retrieving contentful data", result.errors)
-      }
-      res.data.allContentfulPost.edges.forEach(edge => {
-        createPage({
-          component: slash(blogTemplate),
-          path: `/blog/${edge.node.slug}`,
-          context: {
-            id: edge.node.id,
-            slug: edge.node.slug,
-          },
-        })
-      })
+  res.data.allContentfulPost.edges.forEach(edge => {
+    createPage({
+      component: slash(blogTemplate),
+      path: `/blog/${edge.node.slug}`,
+      context: {
+        id: edge.node.id,
+        slug: edge.node.slug,
+      },
     })
-    .catch(error => {
-      console.log("Error retrieving contentful data", error)
-    })
+  })
 }

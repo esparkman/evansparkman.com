@@ -1,16 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import Layout from "../components/Layout"
 
-export const pageQuery = graphql`
+export const query = graphql`
   query($slug: String!) {
-    contentfulPost(slug: { eq: $slug }) {
+    contentfulPost(slug: { eq: $slug}) {
       title
-      slug
       content {
         json
       }
+      publishedDate(formatString: "MMMM Do YYYY")
       image {
         file {
           url
@@ -22,24 +23,16 @@ export const pageQuery = graphql`
 `
 
 const Blog = ({ data }) => {
-  const { title, content, image, tags } = data.allContentfulPost
+  const { title, publishedDate, content, image, tags } = data.contentfulPost
   return (
     <Layout>
-      <SEO title={title} />
-      <div className="blogpost">
-        <h1>{title}</h1>
-        <img alt={title} src={image.file.url} />
-        <div className="tags">
-          {tags.map(tag => (
-            <span className="tag" key={tag}>
-              {tag}
-            </span>
-          ))}
-        </div>
-        <p className="body-text">{content}</p>
-        <Link to="/blogposts">View more posts</Link>
-        <Link to="/">Back to Home</Link>
-      </div>
+      <img src={image.file.url} alt="" />
+      <h1>{title}</h1>
+      <p>{publishedDate}</p>
+      { documentToReactComponents(content.json) }
+      <ul>
+        { tags.map((tag, index) => (<li key={index}>{tag}</li>)) }
+      </ul>
     </Layout>
   )
 }

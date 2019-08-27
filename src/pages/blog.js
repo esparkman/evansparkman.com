@@ -11,15 +11,18 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <h1>Blog</h1>
-      <div className={blogStyles.posts}>
-        {blogPosts.map(({ node: post }) => (
-          <div key={post.id}>
-            <Link to={`/blogpost/${post.slug}`}>{post.title}</Link>
-          </div>
-        ))}
-        <span className="mgBtm__24" />
-        <Link to="/">Go back to the homepage</Link>
-      </div>
+      <ol className={blogStyles.posts}>
+        { blogPosts.map(edge => {
+          return (
+            <li className={blogStyles.post} key={edge.node.id}>
+              <Link to={`/blog/${edge.node.slug}`}>
+                <h2>{edge.node.title}</h2>
+                <p>{edge.node.publishedDate}</p>
+              </Link>
+            </li>
+          )
+        })}
+      </ol>
     </Layout>
   )
 }
@@ -28,21 +31,19 @@ export default BlogPage
 
 export const query = graphql`
   query PostsPageQuery {
-    allContentfulPost(limit: 100) {
+    allContentfulPost (
+      sort: {
+        fields:publishedDate,
+        order: DESC
+      }
+    ) {
       edges {
         node {
           id
-          title
           slug
-          content {
-            json
-          }
-          image {
-            file {
-              url
-            }
-          }
+          title
           tags
+          publishedDate(formatString:"MMMM Do, YYYY")
         }
       }
     }

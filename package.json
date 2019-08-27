@@ -5,14 +5,15 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "env-cmd .env gatsby build",
     "develop": "env-cmd .env gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
+    "start": "yarn develop",
+    "serve": "env-cmd .env gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "gatsby": "^2.3.16",
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.35",
