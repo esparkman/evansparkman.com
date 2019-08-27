@@ -14,6 +14,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "urn5oljhjjwv",
+        accessToken: "Lww1NlAYphEO5utI6QWXWVABoY1hvdkN7PQzlhay_C0",
+      },
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [

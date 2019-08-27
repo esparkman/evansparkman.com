@@ -3,26 +3,43 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/Layout"
 
-export const query = graphql`
+export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
+    contentfulPost(slug: { eq: $slug }) {
+      title
+      slug
+      content {
+        json
       }
-      html
+      image {
+        file {
+          url
+        }
+      }
+      tags
     }
   }
 `
 
-const Blog = props => {
+const Blog = ({ data }) => {
+  const { title, content, image, tags } = data.allContentfulPost
   return (
     <Layout>
-      <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-      <p>{props.data.markdownRemark.frontmatter.date}</p>
-      <div
-        dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
-      />
+      <SEO title={title} />
+      <div className="blogpost">
+        <h1>{title}</h1>
+        <img alt={title} src={image.file.url} />
+        <div className="tags">
+          {tags.map(tag => (
+            <span className="tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+        <p className="body-text">{content}</p>
+        <Link to="/blogposts">View more posts</Link>
+        <Link to="/">Back to Home</Link>
+      </div>
     </Layout>
   )
 }

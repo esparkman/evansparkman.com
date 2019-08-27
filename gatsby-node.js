@@ -1,16 +1,5 @@
 const path = require("path")
-module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
-    createNodeField({
-      node,
-      name: "slug",
-      value: slug,
-    })
-  }
-}
+const slash = require("slash")
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -18,25 +7,32 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const res = await graphql(`
     query {
-      allMarkdownRemark {
+      allContentfulPost {
         edges {
           node {
-            fields {
-              slug
-            }
+            id
+            slug
           }
         }
       }
     }
   `)
-
-  res.data.allMarkdownRemark.edges.forEach(edge => {
-    createPage({
-      component: blogTemplate,
-      path: `/blog/${edge.node.fields.slug}`,
-      context: {
-        slug: edge.node.fields.slug,
-      },
+    .then(result => {
+      if (result.errors) {
+        console.log("Error retrieving contentful data", result.errors)
+      }
+      res.data.allContentfulPost.edges.forEach(edge => {
+        createPage({
+          component: slash(blogTemplate),
+          path: `/blog/${edge.node.slug}`,
+          context: {
+            id: edge.node.id,
+            slug: edge.node.slug,
+          },
+        })
+      })
     })
-  })
+    .catch(error => {
+      console.log("Error retrieving contentful data", error)
+    })
 }
