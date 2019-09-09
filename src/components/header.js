@@ -1,7 +1,5 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-
-// import "./header.module.scss"
 import headerStyles from "./header.module.scss"
 
 const Header = () => {
@@ -15,17 +13,15 @@ const Header = () => {
     }
   `)
   return (
-    <header className={headerStyles.header}>
-      <h1>
-        <Link className={headerStyles.title} to="/">
-          {data.site.siteMetadata.title}
-        </Link>
+    <header className="pt-4 pb-12">
+      <h1 className="font-sans text-5xl font-bold">
+        <Link to="/">{data.site.siteMetadata.title}</Link>
       </h1>
       <nav>
-        <ul className={headerStyles.navList}>
+        <ul className="flex">
           <li>
             <Link
-              className={headerStyles.navItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
               activeClassName={headerStyles.activeNavItem}
               to="/"
             >
@@ -34,7 +30,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className={headerStyles.navItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
               activeClassName={headerStyles.activeNavItem}
               to="/blog"
             >
@@ -43,7 +39,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className={headerStyles.navItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
               activeClassName={headerStyles.activeNavItem}
               to="/about"
             >
@@ -52,7 +48,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className={headerStyles.navItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
               activeClassName={headerStyles.activeNavItem}
               to="/contact"
             >
@@ -61,7 +57,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className={headerStyles.navItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
               activeClassName={headerStyles.activeNavItem}
               to="/resume"
             >

@@ -1,15 +1,16 @@
 import React from "react"
 
-import "../styles/index.scss"
-import layoutStyles from "./layout.module.scss"
+import "../styles/styles.css"
+// import "../styles/index.scss"
+// import layoutStyles from "./layout.module.scss"
 
 import Header from "./header"
 import Footer from "./footer"
 
 const Layout = props => {
   return (
-    <div className={layoutStyles.container}>
-      <div className={layoutStyles.content}>
+    <div className="container mx-auto px-4">
+      <div>
         <Header />
         {props.children}
       </div>
