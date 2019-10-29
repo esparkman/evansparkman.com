@@ -9,7 +9,7 @@ import Footer from "./footer"
 
 const Layout = props => {
   return (
-    <div className="container mx-auto px-4">
+    <div className="container max-w-3xl mx-auto px-4">
       <div>
         <Header />
         {props.children}

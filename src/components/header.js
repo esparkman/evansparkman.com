@@ -14,7 +14,7 @@ const Header = () => {
   `)
   return (
     <header className="pt-4 pb-12">
-      <h1 className="font-sans text-5xl font-bold">
+      <h1 className="font-sans text-6xl font-bold">
         <Link to="/">{data.site.siteMetadata.title}</Link>
       </h1>
       <nav>

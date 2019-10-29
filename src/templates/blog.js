@@ -41,7 +41,10 @@ const Blog = ({ data }) => {
   } = data.contentfulPost
   return (
     <Layout>
-      <img src={image.file.url} alt="" />
+      { 
+        image &&
+        <img src={image.file.url} alt="" />
+      }
       <h1>{title}</h1>
       <p>
         Written by {author.fullName} on {publishedDate}
