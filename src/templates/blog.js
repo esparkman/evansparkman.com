@@ -30,7 +30,7 @@ export const query = graphql`
     }
   }
 `
-const Code = ({ children }) => <code className="inline-block font-italic bg-gray-200 my-4 mx-4 py-4 px-4">{ children }</code>
+const Code = ({ children }) => <pre><code className="w-full whitespace-pre inline-block font-italic bg-gray-200 my-4 mx-4 py-4 px-4">{ children }</code></pre>
 const Text = ({ children }) => <p className="font-sans text-base font-medium my-2">{ children }</p>
 
 const Blog = ({ data }) => {
