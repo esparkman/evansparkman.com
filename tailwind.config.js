@@ -1,11 +1,11 @@
 module.exports = {
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Avenir Next', 'sans-serif']
-      }
-    }
+    fontFamily: {
+      body: ["Open Sans", "sans-serif"],
+      display: ["Montserrat"],
+      sans: ["Avenir Next", "sans-serif"],
+    },
   },
   variants: {},
-  plugins: []
+  plugins: [],
 }

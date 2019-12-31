@@ -1,6 +1,5 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import headerStyles from "./header.module.scss"
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -21,8 +20,8 @@ const Header = () => {
         <ul className="flex">
           <li>
             <Link
-              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
-              activeClassName={headerStyles.activeNavItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
+              activeClassName="border-b-2 border-indigo-400"
               to="/"
             >
               Home
@@ -30,8 +29,8 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
-              activeClassName={headerStyles.activeNavItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
+              activeClassName="border-b-2 border-indigo-400"
               to="/blog"
             >
               Blog
@@ -39,8 +38,8 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
-              activeClassName={headerStyles.activeNavItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
+              activeClassName="border-b-2 border-indigo-400"
               to="/about"
             >
               About
@@ -48,8 +47,8 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
-              activeClassName={headerStyles.activeNavItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
+              activeClassName="border-b-2 border-indigo-400"
               to="/contact"
             >
               Contact Me
@@ -57,8 +56,8 @@ const Header = () => {
           </li>
           <li>
             <Link
-              className="text-base text-gray-600 mr-5 no-underline hover:underline hover:text-gray-800"
-              activeClassName={headerStyles.activeNavItem}
+              className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
+              activeClassName="border-b-2 border-indigo-400"
               to="/resume"
             >
               Resume
