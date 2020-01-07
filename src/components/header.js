@@ -40,15 +40,6 @@ const Header = () => {
             <Link
               className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
               activeClassName="border-b-2 border-indigo-400"
-              to="/about"
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-base text-gray-600 mr-5 no-underline hover:text-gray-800"
-              activeClassName="border-b-2 border-indigo-400"
               to="/contact"
             >
               Contact Me
