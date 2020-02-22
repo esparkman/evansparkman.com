@@ -27,6 +27,7 @@
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "sqreen": "^1.38.3",
     "typeface-montserrat": "^0.0.75",
     "typeface-open-sans": "^0.0.75"
   },
