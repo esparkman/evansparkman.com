@@ -1,4 +1,3 @@
-require("sqreen")
 module.exports = {
   siteMetadata: {
     title: "Evan Sparkman",
