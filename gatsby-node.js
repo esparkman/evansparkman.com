@@ -1,4 +1,3 @@
-require("sqreen")
 const path = require("path")
 const slash = require("slash")
 
@@ -18,7 +17,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  res.data.allContentfulPost.edges.forEach(edge => {
+  res.data.allContentfulPost.edges.forEach((edge) => {
     createPage({
       component: slash(blogTemplate),
       path: `/blog/${edge.node.slug}`,
